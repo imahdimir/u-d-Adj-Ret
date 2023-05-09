@@ -52,7 +52,6 @@ def main() :
     ##
 
     # Get previous adjusted returns data
-
     gdt = GitHubDataRepo(gdu.trg)
     gdt.clone_overwrite()
 
@@ -110,3 +109,14 @@ def main() :
 if __name__ == "__main__" :
     main()
     print(f'{Path(__file__).name} Done!')
+
+##
+if False :
+    pass
+
+    ##
+    fp = '/Users/mahdi/Dropbox/GitHub/u-d-Adjusted-Returns/d-Adjusted-Returns/data.prq'
+
+    df = pd.read_parquet(fp)
+
+    ##

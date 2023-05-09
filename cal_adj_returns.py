@@ -30,7 +30,6 @@ def main() :
     ##
 
     # Get adjusted prices
-
     gdsa = GitHubDataRepo(gdu.srca)
     dfa = gdsa.read_data()
 
