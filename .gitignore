@@ -1,7 +1,10 @@
 ## Manually add by me
 venv
 .idea
-ns.py
+.vscode
+temp_data/
+GitHubData/
+
 
 # General
 .DS_Store
