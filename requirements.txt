@@ -8,4 +8,4 @@ persiantools~=3.0.1
 requests~=2.31.0
 githubdata~=12.3.1
 mirutil~=22.1.0
-namespace_mahdimir==2.0.0
+namespace_mahdimir~=2.1.0
