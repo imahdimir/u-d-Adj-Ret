@@ -2,15 +2,15 @@
 
     """
 
-import shutil
 from pathlib import Path
 
-from githubdata import default_containing_dir
+from mirutil.dirr import DefaultDirs
+from mirutil.run_modules import clean_cache_dirs
 from mirutil.run_modules import run_modules_from_dir_in_order
 from namespace_mahdimir import tse as tse_ns
 from namespace_mahdimir import tse_github_data_url as tgdu
 
-# namespace     %%%%%%%%%%%%%%%
+# namespace
 c = tse_ns.Col()
 
 class GDU :
@@ -24,25 +24,21 @@ class GDU :
     tse_wd_s = g.tse_work_days
 
 class Dirs :
-    md = Path('modules/')
-    md.mkdir(exist_ok = True)
+    dd = DefaultDirs()
 
-    gd = default_containing_dir
-
-    td = Path('temp_data/')
-    td.mkdir(exist_ok = True)
+    gd = dd.gd
+    t = dd.t
 
 class FPN :
     dyr = Dirs()
-    td = dyr.td
 
     # temp data files
-    t0 = td / 't0.prq'
+    t0 = dyr.t / 't0.prq'
 
 class ColName :
-    lastd = "LastDate"
-    firstd = "FirstDate"
-    lfilld = "LinearFilled"
+    frst_d = "FirstDate"
+    lst_d = "LastDate"
+    lin_fill = "LinearFilledAdjClose"
 
 # class instances   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 gdu = GDU()
@@ -50,27 +46,16 @@ dyr = Dirs()
 fpn = FPN()
 cn = ColName()
 
-def clean_cache() :
-    print('cleaning cache ...')
-
-    dyrs = {
-            dyr.gd : None ,
-            dyr.td : None ,
-            }
-
-    for di in dyrs.keys() :
-        shutil.rmtree(di , ignore_errors = True)
-
 def main() :
     pass
 
     ##
-    run_modules_from_dir_in_order(dyr.md)
+
+    run_modules_from_dir_in_order()
 
     ##
-    clean_cache()
 
-    ##
+    clean_cache_dirs()
 
 ##
 
