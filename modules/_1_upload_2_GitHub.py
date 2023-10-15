@@ -2,8 +2,6 @@
 
     """
 
-from pathlib import Path
-
 import pandas as pd
 from githubdata.utils import clone_overwrite_a_repo_return_gdr_obj
 from mirutil.df import save_df_as_prq
@@ -68,8 +66,5 @@ def main() :
     upload(df , fn , gd)
 
 ##
-
-
 if __name__ == "__main__" :
     main()
-    print(f'{Path(__file__).name} Done!')

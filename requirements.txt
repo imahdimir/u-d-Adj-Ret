@@ -3,11 +3,11 @@
 
 pyarrow==13.0.0 # to work with parquet files
 fastparquet==2023.8.0 # to work with parquet files
-
 pandas==2.1.1
 persiantools==3.0.1
 requests==2.31.0
 githubdata==15.0.0
-mirutil==24.2.1
+mirutil==25.0.0
 namespace_mahdimir==3.3.0
 mtok==1.3.0
+run_py==0.0.1

@@ -2,13 +2,11 @@
 
     """
 
-from pathlib import Path
-
-from mirutil.dirr import DefaultDirs
-from mirutil.run_modules import clean_cache_dirs
-from mirutil.run_modules import run_modules_from_dir_in_order
 from namespace_mahdimir import tse as tse_ns
 from namespace_mahdimir import tse_github_data_url as tgdu
+from run_py import DefaultDirs
+from run_py import rm_cache_dirs
+from run_py import run_modules
 
 # namespace
 c = tse_ns.Col()
@@ -24,7 +22,7 @@ class GDU :
     tse_wd_s = g.tse_work_days
 
 class Dirs :
-    dd = DefaultDirs()
+    dd = DefaultDirs(make_default_dirs = True)
 
     gd = dd.gd
     t = dd.t
@@ -38,7 +36,7 @@ class FPN :
 class ColName :
     frst_d = "FirstDate"
     lst_d = "LastDate"
-    lin_fill = "LinearFilledAdjClose"
+    lin_fill = "LinearlyFilledAdjClose"
 
 # class instances   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 gdu = GDU()
@@ -51,15 +49,13 @@ def main() :
 
     ##
 
-    run_modules_from_dir_in_order()
+    run_modules()
 
     ##
 
-    clean_cache_dirs()
+    rm_cache_dirs()
 
 ##
-
-
 if __name__ == "__main__" :
     main()
-    print(f'{Path(__file__).name} Done!')
+    print('\n\n\t\t***** main.py Done! *****\n\n')

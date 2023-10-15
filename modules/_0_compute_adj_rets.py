@@ -2,8 +2,6 @@
 
     """
 
-from pathlib import Path
-
 import pandas as pd
 from githubdata.utils import get_data_fr_github_without_double_clone
 from mirutil.df import save_df_as_prq
@@ -168,8 +166,5 @@ def main() :
     save_df_as_prq(df , fpn.t0)
 
 ##
-
-
 if __name__ == "__main__" :
     main()
-    print(f'{Path(__file__).name} Done!')
