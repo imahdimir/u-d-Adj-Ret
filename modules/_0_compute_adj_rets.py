@@ -3,7 +3,7 @@
     """
 
 import pandas as pd
-from githubdata.utils import get_data_fr_github_without_double_clone
+from githubdata import get_data_wo_double_clone
 from mirutil.df import save_df_as_prq
 
 from main import c
@@ -12,7 +12,7 @@ from main import fpn
 from main import gdu
 
 def get_adj_prices() :
-    return get_data_fr_github_without_double_clone(gdu.adj_price_s)
+    return get_data_wo_double_clone(gdu.adj_price_s)
 
 def keep_relevant_cols(df) :
     c2k = {
@@ -35,7 +35,7 @@ def keep_only_large_enough_prices(df) :
 
 def get_tse_work_days() :
     # get tse working days data
-    return get_data_fr_github_without_double_clone(gdu.tse_wd_s)
+    return get_data_wo_double_clone(gdu.tse_wd_s)
 
 def keep_only_open_dates_of_tse(df) :
     msk = df[c.is_tse_open].eq(True)

@@ -3,7 +3,7 @@
     """
 
 import pandas as pd
-from githubdata.utils import clone_overwrite_a_repo_return_gdr_obj
+from githubdata import clone_overwrite_a_repo__ret_gdr_obj
 from mirutil.df import save_df_as_prq
 from mtok.mtok import ret_local_github_token_filepath
 
@@ -18,7 +18,7 @@ def make_data_fn(df) :
 
 def clone_adj_ret() :
     # Get previous adjusted returns data
-    return clone_overwrite_a_repo_return_gdr_obj(gdu.adj_ret_t)
+    return clone_overwrite_a_repo__ret_gdr_obj(gdu.adj_ret_t)
 
 def upload(df , fn , gdt) :
     jdate = df[c.jd].max()
