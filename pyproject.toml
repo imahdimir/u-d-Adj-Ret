@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "u_d_adj_ret"
-version = "1.1.0"
+version = "1.1.1"
 authors = [{ name = "Mahdi Mir", email = "imahdimir@gmail.com" }]
 description = "Updates TSE Daily Adjusted Returns"
 readme = "README.md"
@@ -20,26 +20,6 @@ dependencies = [
     "namespace_mahdimir==3.3.0",
 ]
 
-classifiers = [
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: Implementation :: PyPy",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-    "Topic :: Utilities"
-]
-
 keywords = [
-    "TSE",
-    "Finance",
-    "data",
-    "cleaning",
-    "data_cleaning",
-    "Tehran",
-    "Stocks"
+    "Tehran-Stock-Exchange",
 ]
-
-[project.urls]
-"Homepage" = "https://github.com/imahdimir/githubdata"
-"Bug Tracker" = "https://github.com/imahdimir/githubdata/issues"
