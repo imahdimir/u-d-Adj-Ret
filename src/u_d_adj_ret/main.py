@@ -45,9 +45,6 @@ def main() :
     pass
 
     ##
-
-    print('\n\n\t\t***** main.py *****\n\n')
-
     run_modules()
 
     ##
@@ -55,5 +52,6 @@ def main() :
 
 ##
 if __name__ == "__main__" :
+    print('\n\n\t\t***** Running main.py *****\n\n')
     main()
     print('\n\n\t\t***** main.py Done! *****\n\n')
