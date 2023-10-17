@@ -89,7 +89,7 @@ def gen_linearly_filled_adj_close(df) :
 
 def gen_1_workday_filled_return(df) :
     gps = df.groupby(c.ftic , group_keys = False)
-    df[c.ar1dlf] = gps[cn.lin_fill].pct_change(fill_method = None)
+    df[c.ar1dlf] = gps[cn.lin_fill].pct_change()
     return df
 
 def assert_only_first_dates_is_nan_in_ret_then_drop_those(df) :

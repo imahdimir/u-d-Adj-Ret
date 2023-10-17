@@ -1,7 +1,4 @@
-## Manually add by me
-venv
-.idea
-.vscode
+# Manual
 temp_data/
 GitHubData/
 
@@ -186,7 +183,7 @@ cython_debug/
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+.idea/
 
 # Directories potentially created on remote AFP share
 .AppleDB
@@ -194,15 +191,3 @@ cython_debug/
 Network Trash Folder
 Temporary Items
 .apdisk
-~$data.xlsx
-/td-u-d0-FirmTicker-MonthlySales/
-/sales-htmls/
-/Tables/
-/tbl-htp/
-/tbls/
-/rd-Codal-monthly-sales-tables/
-/rd-Codal-monthly-sales-htmls/
-/new/
-/rd-Codal-monthly-sales-raw-html/
-/rd-Codal-monthly-sales-low-size-htmls/
-/rd-Codal-monthly-sales-link-htmls/

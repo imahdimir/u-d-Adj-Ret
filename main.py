@@ -14,12 +14,9 @@ c = tse_ns.Col()
 class GDU :
     g = tgdu.GitHubDataUrl()
 
-    adj_ret_t = g.adj_ret
-
-    slf = tgdu.m + 'u-' + adj_ret_t
-
     adj_price_s = g.adj_price
     tse_wd_s = g.tse_work_days
+    adj_ret_t = g.adj_ret
 
 class Dirs :
     dd = DefaultDirs(make_default_dirs = True)
