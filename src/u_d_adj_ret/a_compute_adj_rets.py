@@ -6,10 +6,7 @@ import pandas as pd
 from githubdata import get_data_wo_double_clone
 from mirutil.df import save_df_as_prq
 
-from main import c
-from main import cn
-from main import fpn
-from main import gdu
+from main import *
 
 def get_adj_prices() :
     return get_data_wo_double_clone(gdu.adj_price_s)
