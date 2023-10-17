@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "u_d_adj_ret"
-version = "2.0.0"
+version = "2.0.1"
 authors = [{ name = "Mahdi Mir", email = "imahdimir@gmail.com" }]
 readme = "README.md"
 dependencies = [
