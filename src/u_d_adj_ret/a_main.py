@@ -52,6 +52,6 @@ def main() :
 
 ##
 if __name__ == "__main__" :
-    print('\n\n\t\t***** Running main.py *****\n\n')
+    print('\n\n\t\t***** Running a_main.py *****\n\n')
     main()
-    print('\n\n\t\t***** main.py Done! *****\n\n')
+    print('\n\n\t\t***** a_main.py Done! *****\n\n')

@@ -1,12 +1,35 @@
 """
 
+    There is a great downfall in the adjusted prices due to the fact that
+        they are int numbers and when they are small the rounding error is
+        significant. So we get large returns for small numbers that are not
+        reliable. Keeping only large enough prices is not a good solution
+        because then we get a lot of missing data. Here I assume that the
+        adjusted prices are float typed and we don't round them at all.
+        so generally we need to fix adjusted prices based on the nomianl prices
+        and adjustment factors and not getting them directly from the tsetmc.com
+
+    All small numbers are not in the begining of the data for each ticker.
+        consider the case that the ticker has a negative return in the first
+        rows of it then the following numbers would be even smaller than the
+        first ones so removing large prices and checking they are only in the
+        first rows would not work.
+
+    the question is that do they change the nominal prices or the adjustment
+        or the whole history of the adjusted prices? I think they change both
+        consider only we have stock split of two then nominal price is halfed
+        so the whole history of the adjusted prices should be halfed too.
+        If this is true I must see a change in adj prices if compare two
+        versions of downloaded adj prices from tsetmc.com
+            \TODO I should check it manually.
+
     """
 
 import pandas as pd
 from githubdata import get_data_wo_double_clone
 from mirutil.df import save_df_as_prq
 
-from .main import *
+from a_main import *
 
 def get_adj_prices() :
     return get_data_wo_double_clone(gdu.adj_price_s)
@@ -22,13 +45,12 @@ def keep_relevant_cols(df) :
 
     return df
 
-def keep_only_large_enough_prices(df) :
-    """
-    because of rounding to int, small numbers are not reliable
-    """
-    msk = df[c.aclose].astype(int).gt(10)
-    df = df[msk]
+def convert_adj_price_to_py_float(df) :
+    df[c.aclose] = df[c.aclose].astype(float)
     return df
+
+def assert_no_nan_adj_price(df) :
+    assert df[c.aclose].notna().all() , "There are some nan prices."
 
 def get_tse_work_days() :
     # get tse working days data
@@ -121,7 +143,12 @@ def main() :
 
     dfp = get_adj_prices()
     dfp = keep_relevant_cols(dfp)
-    dfp = keep_only_large_enough_prices(dfp)
+    dfp = convert_adj_price_to_py_float(dfp)
+    assert_no_nan_adj_price(dfp)
+
+    # \TODO: we have zeros in prices, we must not have zeros first I shoud fix adjusted prices then continue this project
+
+    ##
 
     ##
 
@@ -149,6 +176,23 @@ def main() :
     ##
 
     df = assert_only_first_dates_is_nan_in_ret_then_drop_those(df)
+
+    ##
+    msk = df[c.d].eq(df[cn.frst_d])
+
+    df1 = df[msk]
+    assert df1[c.ar1dlf].isna().all() , "First date is not nan"
+    df2 = df[~msk]
+
+    msk1 = df[c.ar1dlf].isna()
+
+    msk = ~msk & msk1
+
+    df2 = df[msk]
+
+    ##
+    assert df[c.ar1dlf].notna().all() , "Not first date is nan"
+    return df
 
     ##
 
